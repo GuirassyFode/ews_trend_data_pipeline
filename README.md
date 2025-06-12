@@ -1,8 +1,6 @@
-# News_trend_data_pipeline
-
 # 🚀 News Article Trend Analysis & Alerting System 📈
 
-**Unlocking Insights from the Daily News Cycle: A Data Engineering Odyssey**
+**Unlocking Insights from the Daily News Cycle: A Containerized Data Engineering Odyssey**
 
 ---
 
@@ -10,7 +8,9 @@
 
 Ever wondered how major organizations keep their finger on the pulse of breaking news and emerging trends? This project is a streamlined Proof of Concept (PoC) designed to simulate just that! It's a miniature, end-to-end data engineering pipeline that ingests raw news articles, meticulously cleans and transforms them, stores them in a structured format, performs essential data quality checks, and then extracts actionable insights to identify trends and trigger mock alerts.
 
-Think of it as your personal news intelligence hub, built from the ground up with robust data engineering principles.
+**Crucially, this entire pipeline is containerized using Docker.** This ensures a consistent, isolated, and easily reproducible environment for running the data processing jobs, mirroring best practices in modern data platforms.
+
+Think of it as your personal news intelligence hub, built from the ground up with robust data engineering principles and ready for seamless deployment.
 
 ---
 
@@ -30,7 +30,7 @@ This pipeline showcases a comprehensive skill set crucial for any modern Data En
     * **Skill:** Efficiently loading processed data into a structured relational database (SQLite).
     * **Demonstration:** Database schema design (simple), intelligent data insertion (`INSERT OR IGNORE` for idempotency), and robust connection management.
 
-4.  **🔍 Data Quality & Validation (`data_quality_checks.py`):**
+4.  **🔍 Data Quality & Validation (`data_quality_checks.py`):
     * **Skill:** Implementing essential checks to ensure data integrity and reliability.
     * **Demonstration:** Identifying duplicates, validating critical fields, and logging potential data anomalies. Because bad data = bad decisions!
 
@@ -42,9 +42,9 @@ This pipeline showcases a comprehensive skill set crucial for any modern Data En
     * **Skill:** Developing logic for event-driven actions based on data insights.
     * **Demonstration:** Monitoring for critical keywords and triggering mock alerts when predefined thresholds are met.
 
-7.  **orchestration ⚙️ Automation & Orchestration (`Makefile`):**
-    * **Skill:** Orchestrating complex data flows into a repeatable, automated process.
-    * **Demonstration:** Using a `Makefile` as a simple, yet powerful, command center to run the entire pipeline or individual stages.
+7.  **orchestration ⚙️ Automation & Orchestration (`Makefile` & Docker Compose):**
+    * **Skill:** Orchestrating complex data flows into a repeatable, automated, and containerized process.
+    * **Demonstration:** Using `Makefile` to trigger `docker-compose` commands for running individual steps or the entire pipeline within isolated containers.
 
 ---
 
@@ -57,9 +57,10 @@ This project is built with a minimalist yet powerful stack, demonstrating core p
     * [`pandas`](https://pandas.pydata.org/): The go-to library for data manipulation and analysis.
     * [`sqlite3`](https://docs.python.org/3/library/sqlite3.html): Python's built-in module for lightweight, file-based relational database storage.
 * **NewsAPI.org:** External data source for real-time news articles.
-* **Makefile:** Simple command-line task runner for pipeline orchestration.
+* **Docker & Docker Compose:** For containerization of the entire application, ensuring environment consistency and easy deployment.
+* **Makefile:** Simple command-line task runner for orchestrating Docker commands.
 * **Git & GitHub:** For version control and collaborative development.
 * **`.env` for Secrets Management:** Secure handling of API keys and sensitive information.
 
 <br>
-**Conceptual Pipeline Flow:**
+**Conceptual Containerized Pipeline Flow:**
