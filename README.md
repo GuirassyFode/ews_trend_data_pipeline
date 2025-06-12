@@ -8,7 +8,7 @@
 
 Ever wondered how major organizations keep their finger on the pulse of breaking news and emerging trends? This project is a streamlined Proof of Concept (PoC) designed to simulate just that! It's a miniature, end-to-end data engineering pipeline that ingests raw news articles, meticulously cleans and transforms them, stores them in a structured format, performs essential data quality checks, and then extracts actionable insights to identify trends and trigger mock alerts.
 
-**Crucially, this entire pipeline is containerized using Docker.** This ensures a consistent, isolated, and easily reproducible environment for running the data processing jobs, mirroring best practices in modern data platforms.
+**Crucially, this entire pipeline is containerized using Docker.** This ensures a consistent, isolated, and easily reproducible environment for running the data processing jobs, mirroring best practices in modern data platforms. While orchestrated simply with a `Makefile` for local execution, its modular design lays the groundwork for seamless integration with robust workflow orchestrators like **Apache Airflow**.
 
 Think of it as your personal news intelligence hub, built from the ground up with robust data engineering principles and ready for seamless deployment.
 
@@ -30,7 +30,7 @@ This pipeline showcases a comprehensive skill set crucial for any modern Data En
     * **Skill:** Efficiently loading processed data into a structured relational database (SQLite).
     * **Demonstration:** Database schema design (simple), intelligent data insertion (`INSERT OR IGNORE` for idempotency), and robust connection management.
 
-4.  **🔍 Data Quality & Validation (`data_quality_checks.py`):
+4.  **🔍 Data Quality & Validation (`data_quality_checks.py`):**
     * **Skill:** Implementing essential checks to ensure data integrity and reliability.
     * **Demonstration:** Identifying duplicates, validating critical fields, and logging potential data anomalies. Because bad data = bad decisions!
 
@@ -42,9 +42,13 @@ This pipeline showcases a comprehensive skill set crucial for any modern Data En
     * **Skill:** Developing logic for event-driven actions based on data insights.
     * **Demonstration:** Monitoring for critical keywords and triggering mock alerts when predefined thresholds are met.
 
-7.  **orchestration ⚙️ Automation & Orchestration (`Makefile` & Docker Compose):**
+7.  **orchestration ⚙️ Automation & Orchestration (Makefile & Docker Compose):**
     * **Skill:** Orchestrating complex data flows into a repeatable, automated, and containerized process.
-    * **Demonstration:** Using `Makefile` to trigger `docker-compose` commands for running individual steps or the entire pipeline within isolated containers.
+    * **Demonstration:** Using `Makefile` to trigger `docker-compose` commands for running individual steps or the entire pipeline within isolated containers. This setup is designed for future migration to dedicated orchestrators.
+
+8.  **☁️ Scalability & Orchestration (Conceptual - with Apache Airflow):**
+    * **Skill:** Understanding of Distributed Systems, Workflow Management, DAG (Directed Acyclic Graph) Principles.
+    * **Demonstration:** The modularity of this pipeline makes it ideal for re-platforming onto sophisticated orchestrators like Apache Airflow, enabling scheduled runs, retry logic, dependencies, and robust monitoring. This showcases an understanding of production-grade data pipelines.
 
 ---
 
@@ -61,6 +65,7 @@ This project is built with a minimalist yet powerful stack, demonstrating core p
 * **Makefile:** Simple command-line task runner for orchestrating Docker commands.
 * **Git & GitHub:** For version control and collaborative development.
 * **`.env` for Secrets Management:** Secure handling of API keys and sensitive information.
+* **Apache Airflow (Conceptual/Future Enhancement):** Designed for seamless integration with this modular pipeline for advanced scheduling and monitoring.
 
 <br>
 **Conceptual Containerized Pipeline Flow:**
